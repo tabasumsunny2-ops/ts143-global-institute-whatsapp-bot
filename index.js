@@ -9,14 +9,27 @@ app.get("/", (req, res) => {
     res.send("TS143 WhatsApp Bot is LIVE 🚀");
 });
 
-// Webhook route (future WhatsApp integration)
-app.post("/webhook", (req, res) => {
-    console.log("Incoming message:", req.body);
+// Webhook verification (IMPORTANT for Meta)
+app.get("/webhook", (req, res) => {
+    const VERIFY_TOKEN = "ts143_verify_123"; // 👈 same token Meta میں بھی ڈالنا ہے
 
-    res.json({
-        status: "success",
-        reply: "Welcome to TS143 Global Institute!"
-    });
+    const mode = req.query["hub.mode"];
+    const token = req.query["hub.verify_token"];
+    const challenge = req.query["hub.challenge"];
+
+    if (mode && token === VERIFY_TOKEN) {
+        console.log("Webhook verified");
+        res.status(200).send(challenge);
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+// Receive WhatsApp messages
+app.post("/webhook", (req, res) => {
+    console.log("Incoming message:", JSON.stringify(req.body, null, 2));
+
+    res.sendStatus(200);
 });
 
 // Server start
