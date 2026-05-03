@@ -28,7 +28,8 @@ app.get("/webhook", (req, res) => {
 
 // Receive messages (MAIN BOT)
 app.post("/webhook", async (req, res) => {
-    console.log(JSON.stringify(req.body, null, 2));
+    console.log("📩 FULL WEBHOOK DATA:");
+console.log(JSON.stringify(req.body, null, 2));
 
     const entry = req.body.entry;
 
