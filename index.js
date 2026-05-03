@@ -43,10 +43,10 @@ console.log(JSON.stringify(req.body, null, 2));
                     const from = msg.from;
 
                     let text = "";
-                    if (msg.text && msg.text.body) {
+
+if (msg.text && msg.text.body) {
     text = msg.text.body.toLowerCase();
 }
-                    }
 
                     let reply = "";
 
