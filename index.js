@@ -96,8 +96,8 @@ app.post("/webhook", async (req, res) => {
 });
 
 // Server start
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, "0.0.0.0", () => {
-    console.log("Bot running on port " + PORT);
+    console.log("✅ Server LIVE on port " + PORT);
 });
