@@ -75,20 +75,18 @@ app.post("/webhook", async (req, res) => {
                     // 🔥 SEND MESSAGE (IMPORTANT PART)
                     await axios.post(
     "https://graph.facebook.com/v19.0/1006656262540650/messages",
-                        {
-                            messaging_product: "whatsapp",
-                            to: from,
-                            text: { body: reply }
-                        },
-                        {
-                            headers: {
-    Authorization: "Bearer EAANxnOC1uT4BRdRmyovRkG0ZAUPJFdeiSeu2zY8qcOZCqOqxZBFdIQYM0g2aPopQhINddJDwqseiRk2jzZAZCcLyn5sKNHmkcq1opNR7eDHAGbQ5VHwv1KBtbpWeEE7lJz0QYLeELrl7w5aabGP1rZAklyPLoc962qu7vWVbH6xMZAm8BnaoANwlaruAWSjcPETTgZDZD",
-    "Content-Type": "application/json"
-}
-}
-                            }
-                        }
-                    );
+    {
+        messaging_product: "whatsapp",
+        to: from,
+        text: { body: reply }
+    },
+    {
+        headers: {
+            Authorization: "Bearer EAANxnOC1uT4BRdRmyovRkG0ZAUPJFdeiSeu2zY8qcOZCqOqxZBFdIQYM0g2aPopQhINddJDwqseiRk2jzZAZCcLyn5sKNHmkcq1opNR7eDHAGbQ5VHwv1KBtbpWeEE7lJz0QYLeELrl7w5aabGP1rZAklyPLoc962qu7vWVbH6xMZAm8BnaoANwlaruAWSjcPETTgZDZD",
+            "Content-Type": "application/json"
+        }
+    }
+);
                 }
             }
         }
